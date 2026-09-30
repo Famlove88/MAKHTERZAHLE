@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f5c4d">
+<title>لائحة المختارين المنتسبين إلى الرابطة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#0f5c4d;--g2:#0b473c;--gl:#e6f2ef;--ink:#1c2a27;--mut:#6b7c78;--line:#d9e3e0;--bg:#f4f7f6;--red:#b3261e;--gold:#b98a1d}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Cairo',system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:16px}
+header{background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;padding:22px 16px 26px;text-align:center}
+header h1{margin:0 0 6px;font-size:1.35rem;font-weight:800;line-height:1.6}
+header .assoc{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.14);border-radius:20px;padding:4px 16px;font-weight:600}
+header .assoc button{background:none;border:0;color:#fff;cursor:pointer;font-size:1rem;padding:0}
+main{max-width:980px;margin:-14px auto 40px;padding:0 12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 6px;text-align:center}
+.stat b{display:block;font-size:1.6rem;color:var(--g);font-weight:800}
+.stat span{font-size:.8rem;color:var(--mut)}
+h2{font-size:1.05rem;margin:0 0 12px;color:var(--g2)}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form .full{grid-column:1/-1}
+label.f{display:block;font-size:.85rem;color:var(--mut);margin-bottom:4px;font-weight:600}
+input[type=text],input[type=email],input[type=password],select{width:100%;font:inherit;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
+.chk{display:flex;align-items:center;gap:10px;padding:11px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;user-select:none;font-weight:600}
+.chk input{width:20px;height:20px;accent-color:var(--g)}
+.btn{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer;background:var(--g);color:#fff}
+.btn:hover{background:var(--g2)}
+.btn.sec{background:var(--gl);color:var(--g2)}
+.btn.sec:hover{background:#d3e7e2}
+.btn.red{background:var(--red)}
+.btn.sm{padding:5px 10px;font-size:.8rem;border-radius:8px}
+.btn:disabled{opacity:.5;cursor:default}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.toolbar input{flex:1;min-width:150px}
+.toolbar select{width:auto}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th{background:var(--gl);color:var(--g2);font-weight:700;padding:10px 8px;text-align:center;white-space:nowrap}
+td{padding:9px 8px;border-top:1px solid var(--line);text-align:center}
+td.n{text-align:right;font-weight:600}
+tr:nth-child(even) td{background:#fafcfb}
+.yes{color:var(--g);font-weight:800;font-size:1.1rem}
+.no{color:#c5d0cd}
+.empty{padding:28px;text-align:center;color:var(--mut)}
+.msg{padding:10px 12px;border-radius:10px;margin-top:10px;font-weight:600;display:none}
+.msg.ok{display:block;background:#e3f4e8;color:#1b6b34}
+.msg.err{display:block;background:#fdeceb;color:var(--red)}
+.banner{background:#fff6dc;border:1px solid #ecd58b;color:#7a5a06;border-radius:12px;padding:10px 14px;margin-bottom:14px;font-size:.9rem}
+footer{text-align:center;color:var(--mut);font-size:.8rem;padding-bottom:30px}
+dialog{border:0;border-radius:14px;padding:18px;width:min(420px,92vw);font-family:inherit}
+dialog::backdrop{background:rgba(0,0,0,.45)}
+dialog .row{display:flex;gap:8px;justify-content:flex-start;margin-top:14px}
+dialog .g{display:grid;gap:10px}
+@media(max-width:560px){.form{grid-template-columns:1fr}.stat b{font-size:1.3rem}
+.tw{border:0}table,tbody{display:block}thead{display:none}
+tr{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:10px}
+tr:nth-child(even) td{background:none}
+td{border:0;padding:2px 0;text-align:right}
+td.n{grid-column:1/-1;font-size:1.05rem;color:var(--g2)}
+td.n::before{content:attr(data-num) ' . ';color:var(--mut);font-weight:600}
+td.c{display:none}
+td[data-l]::before{content:attr(data-l) ': ';color:var(--mut);font-size:.8rem;font-weight:400}
+td.adm{grid-column:1/-1;padding-top:6px}}
+@media print{header .assoc button,.noprint,.adm{display:none!important}body{background:#fff}.card,.stat{box-shadow:none}}
+</style>
+</head>
+<body>
+<header>
+  <h1>لائحة بأسماء المختارين المنتسبين إلى الرابطة<br>وأسماء المختارين الذين يستلمون طوابع من الرابطة</h1>
+  <div class="assoc"><span id="assocName">اسم الرابطة</span><button id="assocEdit" class="adm" style="display:none" title="تعديل اسم الرابطة">✎</button></div>
+</header>
+
+<main>
+  <div id="demoBanner" class="banner" style="display:none">⚠️ وضع تجريبي: ما في Firebase config بعد، فالأسماء بتنحفظ عالجهاز بس. الصق إعدادات Firebase في أول السكربت (FIREBASE_CONFIG) لتصير اللائحة مشتركة بين الكل.</div>
+
+  <div class="stats">
+    <div class="stat"><b id="sAll">0</b><span>عدد المخاتير المسجّلين</span></div>
+    <div class="stat"><b id="sMem">0</b><span>منتسب للرابطة</span></div>
+    <div class="stat"><b id="sSt">0</b><span>يستلم طوابع</span></div>
+  </div>
+
+  <section class="card noprint" style="margin-top:14px">
+    <h2>➕ أضف اسمك إلى اللائحة</h2>
+    <form id="addForm" class="form" autocomplete="off">
+      <div class="full"><label class="f" for="fName">الاسم الثلاثي</label><input type="text" id="fName" maxlength="80" placeholder="مثال: أحمد محمد الحسن" required></div>
+      <div class="full"><label class="f" for="fTown">البلدة</label><input type="text" id="fTown" maxlength="40" placeholder="مثال: بر الياس" required></div>
+      <label class="chk"><input type="checkbox" id="fMem" checked> منتسب إلى الرابطة</label>
+      <label class="chk"><input type="checkbox" id="fSt"> يستلم طوابع من الرابطة</label>
+      <div class="full"><button class="btn" id="addBtn" type="submit">إضافة إلى اللائحة</button></div>
+    </form>
+    <div id="addMsg" class="msg"></div>
+  </section>
+
+  <section class="card">
+    <h2>📋 اللائحة</h2>
+    <div class="toolbar noprint">
+      <input type="text" id="q" placeholder="🔍 ابحث بالاسم أو البلدة">
+      <select id="flt"><option value="">الكل</option><option value="mem">المنتسبون</option><option value="st">يستلمون طوابع</option></select>
+      <button class="btn sec" id="xlsBtn">تصدير Excel</button>
+      <button class="btn sec" id="prnBtn">طباعة</button>
+      <button class="btn sec" id="admBtn">دخول المشرف</button>
+    </div>
+    <div class="tw"><table>
+      <thead><tr><th>#</th><th>الاسم الثلاثي</th><th>البلدة</th><th>منتسب</th><th>يستلم طوابع</th><th class="adm" style="display:none">إجراءات</th></tr></thead>
+      <tbody id="tb"></tbody>
+    </table></div>
+    <div id="empty" class="empty" style="display:none">ما في أسماء مسجّلة بعد.</div>
+  </section>
+  <footer>كل مختار بيضيف اسمه بنفسه — التعديل والحذف للمشرف فقط</footer>
+</main>
+
+<dialog id="dLogin"><form method="dialog" id="loginForm" class="g">
+  <h2>دخول المشرف</h2>
+  <input type="email" id="lEmail" placeholder="البريد الإلكتروني" required>
+  <input type="password" id="lPass" placeholder="كلمة السر" required>
+  <div id="lMsg" class="msg"></div>
+  <div class="row"><button class="btn" type="submit">دخول</button><button class="btn sec" type="button" data-close>إلغاء</button></div>
+</form></dialog>
+
+<dialog id="dEdit"><form method="dialog" id="editForm" class="g">
+  <h2>تعديل الاسم</h2>
+  <input type="text" id="eName" maxlength="80" required>
+  <input type="text" id="eTown" maxlength="40" required>
+  <label class="chk"><input type="checkbox" id="eMem"> منتسب إلى الرابطة</label>
+  <label class="chk"><input type="checkbox" id="eSt"> يستلم طوابع من الرابطة</label>
+  <div class="row"><button class="btn" type="submit">حفظ</button><button class="btn sec" type="button" data-close>إلغاء</button></div>
+</form></dialog>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+/* ====== الصق إعدادات Firebase هون ====== */
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyBzOXr8OzuQS8kXFrdJGkYnh_aYNYQnzx4",
+  authDomain: "mokhtarname.firebaseapp.com",
+  projectId: "mokhtarname",
+  storageBucket: "mokhtarname.firebasestorage.app",
+  messagingSenderId: "607867925395",
+  appId: "1:607867925395:web:8fbe632172ee21d5a86e66"
+};
+/* ======================================= */
+
+const DEMO = !FIREBASE_CONFIG.apiKey;
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm = s => String(s).replace(/[ً-ٰٟـ]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه')
+  .replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/\s+/g,' ').trim().toLowerCase();
+const clean = s => String(s).replace(/\s+/g,' ').trim();
+
+async function makeId(name, town){
+  const key = norm(name)+'|'+norm(town);
+  try{
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(key));
+    return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('').slice(0,32);
+  }catch(e){
+    let h=5381; for(const c of key) h=((h<<5)+h+c.charCodeAt(0))>>>0;
+    return 'k'+h.toString(16)+key.length;
+  }
+}
+
+/* ---------- طبقة البيانات: Firebase أو تجريبي محلي ---------- */
+let db=null, auth=null, rows=[], isAdmin=false, assocName='';
+const LS='rabita_demo_v1', LSM='rabita_demo_meta';
+let demoListeners=[];
+const store = {
+  init(){
+    if(DEMO){ isAdmin=true; return; }
+    firebase.initializeApp(FIREBASE_CONFIG);
+    db=firebase.firestore(); auth=firebase.auth();
+    db.enablePersistence({synchronizeTabs:true}).catch(()=>{});
+  },
+  subscribe(){
+    if(DEMO){
+      const load=()=>{ try{rows=JSON.parse(localStorage.getItem(LS)||'[]');}catch(e){rows=[];} render(); };
+      load(); assocName=localStorage.getItem(LSM)||''; showAssoc(); return;
+    }
+    db.collection('mukhtars').onSnapshot(s=>{
+      rows=s.docs.map(d=>{const x=d.data({serverTimestamps:'estimate'});return {id:d.id,...x,t:x.createdAt&&x.createdAt.toMillis?x.createdAt.toMillis():Date.now()};});
+      rows.sort((a,b)=>a.t-b.t); render();
+    },e=>msg($('addMsg'),'err','تعذّر تحميل اللائحة: '+e.message));
+    db.collection('meta').doc('settings').onSnapshot(d=>{assocName=(d.data()||{}).assoc||''; showAssoc();});
+    auth.onAuthStateChanged(u=>{isAdmin=!!u; adminUI(); render();});
+  },
+  async add(id,rec){
+    if(DEMO){ if(rows.some(r=>r.id===id)) throw {code:'permission-denied'};
+      rows.push({id,...rec,t:Date.now()}); localStorage.setItem(LS,JSON.stringify(rows)); render(); return; }
+    await db.collection('mukhtars').doc(id).set({...rec,createdAt:firebase.firestore.FieldValue.serverTimestamp()});
+  },
+  async update(id,patch){
+    if(DEMO){ rows=rows.map(r=>r.id===id?{...r,...patch}:r); localStorage.setItem(LS,JSON.stringify(rows)); render(); return; }
+    await db.collection('mukhtars').doc(id).update(patch);
+  },
+  async remove(id){
+    if(DEMO){ rows=rows.filter(r=>r.id!==id); localStorage.setItem(LS,JSON.stringify(rows)); render(); return; }
+    await db.collection('mukhtars').doc(id).delete();
+  },
+  async setAssoc(v){
+    if(DEMO){ localStorage.setItem(LSM,v); assocName=v; showAssoc(); return; }
+    await db.collection('meta').doc('settings').set({assoc:v},{merge:true});
+  }
+};
+
+/* ---------- واجهة ---------- */
+function msg(el,type,text){ el.className='msg '+type; el.textContent=text; if(type==='ok') setTimeout(()=>{el.className='msg'},4000); }
+function showAssoc(){ $('assocName').textContent = assocName || 'اسم الرابطة'; }
+function adminUI(){
+  document.querySelectorAll('.adm').forEach(e=>e.style.display=isAdmin?'':'none');
+  $('admBtn').textContent = isAdmin ? 'خروج المشرف' : 'دخول المشرف';
+  if(DEMO) $('admBtn').style.display='none';
+}
+function filtered(){
+  const q=norm($('q').value), f=$('flt').value;
+  return rows.filter(r=>(!q||norm(r.name).includes(q)||norm(r.town).includes(q))&&(f===''||(f==='mem'&&r.member)||(f==='st'&&r.stamps)));
+}
+function render(){
+  $('sAll').textContent=rows.length; $('sMem').textContent=rows.filter(r=>r.member).length; $('sSt').textContent=rows.filter(r=>r.stamps).length;
+  const list=filtered(), mark=v=>v?'<span class="yes">✓</span>':'<span class="no">—</span>';
+  $('tb').innerHTML=list.map((r,i)=>`<tr><td class="c">${rows.indexOf(r)+1}</td><td class="n" data-num="${rows.indexOf(r)+1}">${esc(r.name)}</td><td data-l="البلدة">${esc(r.town)}</td><td data-l="منتسب">${mark(r.member)}</td><td data-l="يستلم طوابع" style="grid-column:1/-1">${mark(r.stamps)}</td>`+
+    `<td class="adm" style="display:${isAdmin?'':'none'};white-space:nowrap"><button class="btn sm sec" data-e="${esc(r.id)}">تعديل</button> <button class="btn sm red" data-d="${esc(r.id)}">حذف</button></td></tr>`).join('');
+  $('empty').style.display=list.length?'none':'block';
+  $('empty').textContent=rows.length?'ما في نتائج مطابقة.':'ما في أسماء مسجّلة بعد.';
+}
+
+$('addForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const name=clean($('fName').value), town=clean($('fTown').value);
+  if(name.split(' ').length<3 && !confirm('الاسم مش ثلاثي (اسم + اسم الأب + الشهرة). بدك تكمّل هيك؟')) return;
+  const id=await makeId(name,town);
+  if(rows.some(r=>r.id===id)) return msg($('addMsg'),'err','هالاسم مسجّل من قبل بنفس البلدة.');
+  $('addBtn').disabled=true;
+  try{
+    await store.add(id,{name,town,member:$('fMem').checked,stamps:$('fSt').checked});
+    msg($('addMsg'),'ok','تمت الإضافة ✓ — '+name);
+    $('fName').value='';$('fTown').value=town;$('fSt').checked=false;$('fMem').checked=true;$('fName').focus();
+  }catch(err){
+    msg($('addMsg'),'err',(err.code==='permission-denied')?'هالاسم مسجّل من قبل، أو البيانات مش مقبولة.':'تعذّرت الإضافة: '+(err.message||err));
+  }
+  $('addBtn').disabled=false;
+});
+
+$('q').addEventListener('input',render); $('flt').addEventListener('change',render);
+$('prnBtn').onclick=()=>window.print();
+
+$('xlsBtn').onclick=()=>{
+  const list=filtered();
+  const aoa=[['لائحة بأسماء المختارين المنتسبين الى الرابطة واسماء المختارين الذين يستلمون طوابع من الرابطة: '+(assocName||'')],
+    ['#','الاسم الثلاثي','البلدة','منتسب','يستلم طوابع من الرابطة'],
+    ...list.map(r=>[rows.indexOf(r)+1,r.name,r.town,r.member?'✓':'',r.stamps?'✓':''])];
+  const ws=XLSX.utils.aoa_to_sheet(aoa);
+  ws['!merges']=[{s:{r:0,c:0},e:{r:0,c:4}}]; ws['!cols']=[{wch:6},{wch:32},{wch:20},{wch:10},{wch:22}];
+  const wb=XLSX.utils.book_new(); wb.Workbook={Views:[{RTL:true}]};
+  XLSX.utils.book_append_sheet(wb,ws,'لائحة اسماء المختارين');
+  XLSX.writeFile(wb,'لائحة-المختارين.xlsx');
+};
+
+/* مشرف */
+$('admBtn').onclick=()=>{ if(isAdmin){auth.signOut();} else {$('lMsg').className='msg'; $('dLogin').showModal();} };
+$('loginForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{ await auth.signInWithEmailAndPassword($('lEmail').value.trim(),$('lPass').value); $('dLogin').close(); $('lPass').value=''; }
+  catch(err){ msg($('lMsg'),'err','البريد أو كلمة السر غلط.'); }
+});
+document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>b.closest('dialog').close());
+$('assocEdit').onclick=async()=>{ const v=prompt('اسم الرابطة:',assocName); if(v!==null){ try{await store.setAssoc(clean(v));}catch(e){alert('تعذّر الحفظ');} } };
+
+let editId=null;
+$('tb').addEventListener('click',async e=>{
+  const eb=e.target.closest('[data-e]'), db_=e.target.closest('[data-d]');
+  if(eb){ const r=rows.find(x=>x.id===eb.dataset.e); if(!r) return; editId=r.id;
+    $('eName').value=r.name;$('eTown').value=r.town;$('eMem').checked=!!r.member;$('eSt').checked=!!r.stamps;$('dEdit').showModal(); }
+  if(db_){ const r=rows.find(x=>x.id===db_.dataset.d); if(r&&confirm('حذف «'+r.name+'» من اللائحة؟')){ try{await store.remove(r.id);}catch(err){alert('تعذّر الحذف');} } }
+});
+$('editForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{ await store.update(editId,{name:clean($('eName').value),town:clean($('eTown').value),member:$('eMem').checked,stamps:$('eSt').checked}); $('dEdit').close(); }
+  catch(err){ alert('تعذّر الحفظ'); }
+});
+
+store.init(); if(DEMO) $('demoBanner').style.display='block';
+store.subscribe(); adminUI(); render();
+</script>
+</body>
+</html>
